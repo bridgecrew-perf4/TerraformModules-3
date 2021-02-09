@@ -70,7 +70,7 @@ variable "default_ami" {
   default = {
     "2016"  = "WIN2016-CUSTOM*"
     "2019"  = "WIN2019-CUSTOM*"
-    "linux" = ""CentOS Linux 7 x86_64 HVM EBS *"
+    "linux" = "CentOS Linux 7 x86_64 HVM EBS *"
   }
 }
 
