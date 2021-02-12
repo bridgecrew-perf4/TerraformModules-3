@@ -43,7 +43,7 @@ resource "aws_instance" "ec2" {
   }
 }
 resource "aws_eip" "ip" {
-  instance = aws_instance.ec2[count.index]
+  instance = aws_instance.ec2[0]
   tags = {
     Name    = var.name
   }
