@@ -20,6 +20,11 @@ variable "region" {
 # ---------------------------------------------------------------------------------------------------------------------
 # Network related settings
 # ---------------------------------------------------------------------------------------------------------------------
+variable "network_interface" {
+  description = "Customize network interfaces to be attached at instance boot time"
+  type        = list(map(string))
+  default     = []
+}
 
 variable "public_ip" {
   default = "true"
