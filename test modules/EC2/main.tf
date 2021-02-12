@@ -40,7 +40,7 @@ resource "aws_instance" "ec2" {
   }
 }
 resource "aws_eip" "ip" {
-  instance = aws_instance.test-ec2deployment.id
+  instance = aws_instance.ec2.id
   tags = {
     Name    = var.var.name
   }
