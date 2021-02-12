@@ -14,7 +14,10 @@ resource "aws_instance" "ec2" {
   instance_type               = var.instance_type
   user_data                   = var.user_data
   key_name                    = var.key_name
-  subnet_id                   = var.subnet_id
+  subnet_id = length(var.network_interface) > 0 ? null : element(
+    distinct(compact(concat([var.subnet_id], var.subnet_ids))),
+    count.index,
+  )
   availability_zone           = var.availability_zone
   associate_public_ip_address = var.public_ip
 
