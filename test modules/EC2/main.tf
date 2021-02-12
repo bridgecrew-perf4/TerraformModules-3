@@ -25,9 +25,7 @@ resource "aws_instance" "ec2" {
     volume_size           = var.volume_size
     delete_on_termination = false
   }
-}
-
-  dynamic "ebs_block_device" {
+    dynamic "ebs_block_device" {
     for_each = var.ebs_block_device
     content {
       delete_on_termination = lookup(ebs_block_device.value, "delete_on_termination", null)
@@ -40,7 +38,7 @@ resource "aws_instance" "ec2" {
       volume_type           = lookup(ebs_block_device.value, "volume_type", null)
     }
   }
-
+}
 resource "aws_eip" "ip" {
   instance = aws_instance.test-ec2deployment.id
   tags = {
