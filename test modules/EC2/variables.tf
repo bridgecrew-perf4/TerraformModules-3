@@ -33,6 +33,12 @@ variable "subnet_id" {
   default = "subnet-e7120b9d"
 }
 
+variable "subnet_ids" {
+  description = "A list of VPC Subnet IDs to launch in"
+  type        = list(string)
+  default     = []
+}
+
 variable "availability_zone" {
   default = "eu-central-1b"
 }
