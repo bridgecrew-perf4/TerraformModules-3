@@ -26,6 +26,12 @@ variable "network_interface" {
   default     = []
 }
 
+variable "vpc_security_group_ids" {
+  description = "A list of security group IDs to associate with"
+  type        = list(string)
+  default     = null
+}
+
 variable "public_ip" {
   default = "true"
 }
@@ -85,10 +91,6 @@ variable "name" {
   default     = "Default_terraform_deployment"
 }
 
-variable "volume_size" {
-  default = "60"
-}
-
 variable "instance_type" {
   default = "t3a.large"
 }
@@ -97,6 +99,30 @@ variable "tags" {
   description = "A mapping of tags to assign to the resource"
   type        = map(string)
   default     = {}
+}
+
+variable "volume_tags" {
+  description = "A mapping of tags to assign to the devices created by the instance at launch time"
+  type        = map(string)
+  default     = {}
+}
+
+variable "root_block_device" {
+  description = "Customize details about the root block device of the instance. See Block Devices below for details"
+  type        = list(map(string))
+  default     = []
+}
+
+variable "use_num_suffix" {
+  description = "Always append numerical suffix to instance name, even if instance_count is 1"
+  type        = bool
+  default     = false
+}
+
+variable "num_suffix_format" {
+  description = "Numerical suffix format used as the volume and EC2 instance name suffix"
+  type        = string
+  default     = "-%d"
 }
 
 variable "ebs_block_device" {
@@ -110,9 +136,11 @@ variable "default_ami" {
   type        = map
   description = "Choose windows 2016 or 2019"
   default = {
-    "2016"  = "WIN2016-CUSTOM*"
-    "2019"  = "WIN2019-CUSTOM*"
-    "linux" = "CentOS-CUSTOM*"
+    "2016"    = "WIN2016-CUSTOM*"
+    "2019"    = "WIN2019-CUSTOM*"
+    "centos7" = "CentOS7-CUSTOM*"
+    "centos8" = "CentOS8-CUSTOM*"
+    "rhel"    = "RHEL8-CUSTOM*"
   }
 }
 

@@ -13,23 +13,25 @@ resource "aws_instance" "ec2" {
   ami           = data.aws_ami.latest.id
   instance_type = var.instance_type
   user_data     = var.user_data
-  key_name      = var.key_name
-  vpc_security_group_ids = var.vpc_security_group_ids
   subnet_id = length(var.network_interface) > 0 ? null : element(
     distinct(compact(concat([var.subnet_id], var.subnet_ids))),
     count.index,
   )
-  availability_zone           = var.availability_zone
-  associate_public_ip_address = var.public_ip
+  vpc_security_group_ids = var.vpc_security_group_ids
+  ebs_optimized          = var.ebs_optimized
 
-  ebs_optimized = var.ebs_optimized
-
-  root_block_device {
-    volume_type           = "gp2"
-    volume_size           = var.volume_size
-    delete_on_termination = false
+  dynamic "root_block_device" {
+    for_each = var.root_block_device
+    content {
+      delete_on_termination = lookup(root_block_device.value, "delete_on_termination", null)
+      encrypted             = lookup(root_block_device.value, "encrypted", null)
+      iops                  = lookup(root_block_device.value, "iops", null)
+      kms_key_id            = lookup(root_block_device.value, "kms_key_id", null)
+      volume_size           = lookup(root_block_device.value, "volume_size", null)
+      volume_type           = lookup(root_block_device.value, "volume_type", null)
+    }
   }
-    dynamic "network_interface" {
+  dynamic "network_interface" {
     for_each = var.network_interface
     content {
       device_index          = network_interface.value.device_index
@@ -50,4 +52,11 @@ resource "aws_instance" "ec2" {
       volume_type           = lookup(ebs_block_device.value, "volume_type", null)
     }
   }
+
+  tags = merge(
+    {
+      "Name" = var.instance_count > 1 || var.use_num_suffix ? format("%s${var.num_suffix_format}", var.name, count.index + 1) : var.name
+    },
+    var.tags,
+  )
 }
