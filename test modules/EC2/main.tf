@@ -42,12 +42,3 @@ resource "aws_instance" "ec2" {
     }
   }
 }
-resource "aws_eip" "ip" {
-  instance = aws_instance.ec2.id[0]
-  tags = {
-    Name    = var.name
-  }
-}
-resource "aws_eip" "example" {
-  vpc = true
-}
