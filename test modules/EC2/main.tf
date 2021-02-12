@@ -39,7 +39,7 @@ resource "aws_instance" "ec2" {
       snapshot_id           = lookup(ebs_block_device.value, "snapshot_id", null)
       volume_size           = lookup(ebs_block_device.value, "volume_size", null)
       volume_type           = lookup(ebs_block_device.value, "volume_type", null)
-    }
+    }}
         dynamic "network_interface" {
     for_each = var.network_interface
     content {
@@ -47,7 +47,7 @@ resource "aws_instance" "ec2" {
       network_interface_id  = lookup(network_interface.value, "network_interface_id", null)
       delete_on_termination = lookup(network_interface.value, "delete_on_termination", false)
     }
-  }
+  
       
   }
 }
