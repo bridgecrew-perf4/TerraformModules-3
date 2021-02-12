@@ -47,13 +47,6 @@ resource "aws_eip" "ip" {
     Name    = var.var.name
   }
 }
-  tags = merge(
-    {
-      "Name" = var.instance_count > 1 || var.use_num_suffix ? format("%s${var.num_suffix_format}", var.name, count.index + 1) : var.name
-    },
-    var.tags,
-  )
-
 resource "aws_eip" "example" {
   vpc = true
 }
