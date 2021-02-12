@@ -9,6 +9,7 @@ data "aws_ami" "latest" {
 }
 
 resource "aws_instance" "test-ec2deployment" {
+  count                       = var.instance_count
   ami                         = data.aws_ami.latest.id
   instance_type               = var.instance_type
   subnet_id                   = var.subnet_id
