@@ -31,4 +31,5 @@ variable "subnets" {
 
 variable "assign_public_ip" {
   description = "The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)"
+  default = "true"
 }
