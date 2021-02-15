@@ -15,10 +15,12 @@ variable "task_definition" {
 
 variable "desired_count" {
   description = "The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)"
+  default = "1"
 }
 
 variable "launch_type" {
   description = "The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)"
+  default = "FARGATE"
 }
 
 variable "security_groups" {
