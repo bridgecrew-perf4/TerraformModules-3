@@ -73,6 +73,12 @@ variable "instance_count" {
   default     = 1
 }
 
+variable "key_name" {
+  description = "The key name to use for the instance"
+  type        = string
+  default     = "nlaws.pk"
+}
+
 variable "ebs_optimized" {
   description = "If true, the launched EC2 instance will be EBS-optimized"
   type        = bool
