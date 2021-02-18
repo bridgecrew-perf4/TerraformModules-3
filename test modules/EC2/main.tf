@@ -68,5 +68,4 @@ resource "aws_eip" "default" {
 
   network_interface = element(aws_instance.ec2.*.primary_network_interface_id, count.index)
   vpc               = true
-  )
 }
