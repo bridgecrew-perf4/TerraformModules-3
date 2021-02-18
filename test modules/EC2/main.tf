@@ -13,6 +13,7 @@ resource "aws_instance" "ec2" {
   ami           = data.aws_ami.latest.id
   instance_type = var.instance_type
   user_data     = var.user_data
+  key_name      = var.key_name
   subnet_id = length(var.network_interface) > 0 ? null : element(
     distinct(compact(concat([var.subnet_id], var.subnet_ids))),
     count.index,
