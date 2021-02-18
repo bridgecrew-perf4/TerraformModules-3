@@ -61,7 +61,6 @@ resource "aws_instance" "ec2" {
   )
 }
 
-#Module      : EIP
 #Description : Provides an Elastic IP resource.
 resource "aws_eip" "default" {
   count = var.assign_eip_address == true ? var.instance_count : 0
