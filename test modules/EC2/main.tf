@@ -60,3 +60,13 @@ resource "aws_instance" "ec2" {
     var.tags,
   )
 }
+
+#Module      : EIP
+#Description : Provides an Elastic IP resource.
+resource "aws_eip" "default" {
+  count = var.instance_enabled == true && var.assign_eip_address == true ? var.instance_count : 0
+
+  network_interface = element(aws_instance.ec2.*.primary_network_interface_id, count.index)
+  vpc               = true
+  )
+}
