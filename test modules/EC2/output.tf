@@ -13,3 +13,7 @@ output "security_groups" {
   value       = aws_instance.ec2.*.security_groups
 }
 
+output "instance_id" {
+  value       = aws_instance.ec2.*.id
+  description = "The instance ID."
+}
