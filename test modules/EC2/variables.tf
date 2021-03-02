@@ -147,6 +147,7 @@ variable "default_ami" {
     "centos7" = "CentOS7-CUSTOM*"
     "centos8" = "CentOS8-CUSTOM*"
     "rhel"    = "RHEL8-CUSTOM*"
+    "nessus"  = "Nessus 8.13.1 (master-12 1608153355) BYOL-8e783acf-0dfb-44dc-b080-415aad141bb2-ami-04aeca910673b8c21.4"
   }
 }
 
