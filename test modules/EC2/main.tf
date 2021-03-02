@@ -4,7 +4,7 @@ data "aws_ami" "latest" {
 
   filter {
     name   = "name"
-    values = [lookup(var.default_ami, var.ami, var.owner)]
+    values = [lookup(var.default_ami, var.ami)]
   }
 }
 
