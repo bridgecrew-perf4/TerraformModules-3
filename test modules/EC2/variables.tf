@@ -4,6 +4,7 @@
 
 variable "shared_credentials_file" {
   description = "This needs to point to a .aws credential file which is stored/configured on your local laptop"
+  default     = ""
   type        = string
 }
 
