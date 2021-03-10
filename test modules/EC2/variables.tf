@@ -2,12 +2,6 @@
 # Mandatory variables which need to be set
 # ---------------------------------------------------------------------------------------------------------------------
 
-variable "shared_credentials_file" {
-  description = "This needs to point to a .aws credential file which is stored/configured on your local laptop"
-  default     = ""
-  type        = string
-}
-
 variable "profile" {
   description = "This is usually default but you can create different profiles when configuring your credentials file."
   default     = "default"
