@@ -114,6 +114,12 @@ variable "use_num_suffix" {
   default     = false
 }
 
+variable "assign_eip_address" {
+  type        = bool
+  default     = false
+  description = "Assign an Elastic IP address to the instance."
+}
+
 variable "num_suffix_format" {
   description = "Numerical suffix format used as the volume and EC2 instance name suffix"
   type        = string
