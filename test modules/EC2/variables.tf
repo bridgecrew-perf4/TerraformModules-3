@@ -53,12 +53,6 @@ variable "server_port" {
   default = "443"
 }
 
-variable "assign_eip_address" {
-  type        = bool
-  default     = false
-  description = "Assign an Elastic IP address to the instance."
-}
-
 # ---------------------------------------------------------------------------------------------------------------------
 # Server specific settings
 # ---------------------------------------------------------------------------------------------------------------------
