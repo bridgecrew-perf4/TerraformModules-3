@@ -12,7 +12,7 @@ locals {
 resource "aws_security_group" "default" {
   count = local.security_group_count
 
-  name        = module.labels.id
+  name        = var.name
   vpc_id      = var.vpc_id
   description = var.description
   tags        = var.tags
