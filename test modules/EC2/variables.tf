@@ -156,6 +156,3 @@ variable "ami" {
 variable "owner" {
   default = "self"
 }
-
-variable "instance_count"{
-  }
