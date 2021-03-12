@@ -1,5 +1,3 @@
-#Module      : LABEL
-#Description : Terraform label module variables.
 variable "name" {
   type        = string
   default     = ""
@@ -88,4 +86,10 @@ variable "prefix_list" {
   type        = list
   default     = []
   description = "List of prefix list IDs (for allowing access to VPC endpoints)Only valid with egress"
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to the resource"
+  type        = map(string)
+  default     = {}
 }
