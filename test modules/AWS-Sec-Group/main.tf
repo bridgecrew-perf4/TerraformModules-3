@@ -1,21 +1,3 @@
-# Managed By : CloudDrove
-# Description : This Script is used to create security group.
-# Copyright @ CloudDrove. All Right Reserved.
-
-#Module      : Label
-#Description : This terraform module is designed to generate consistent label names and tags
-#              for resources. You can use terraform-labels to implement a strict naming
-#              convention.
-
-module "labels" {
-  source = "git::https://github.com/clouddrove/terraform-labels.git?ref=tags/0.13.0"
-
-  name        = var.name
-  application = var.application
-  environment = var.environment
-  label_order = var.label_order
-}
-
 locals {
   security_group_count           = var.enable_security_group == true ? 1 : 0
   enable_cidr_rules              = var.enable_security_group && (length(var.allowed_ip) > 0)
@@ -33,7 +15,7 @@ resource "aws_security_group" "default" {
   name        = module.labels.id
   vpc_id      = var.vpc_id
   description = var.description
-  tags        = module.labels.tags
+  tags        = var.tags
   lifecycle {
     create_before_destroy = true
   }
