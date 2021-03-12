@@ -5,8 +5,3 @@ output "security_group_ids" {
   value       = join("", aws_security_group.default.*.id)
   description = "IDs on the AWS Security Groups associated with the instance."
 }
-
-output "tags" {
-  value       = module.labels.tags
-  description = "A mapping of public tags to assign to the resource."
-}
