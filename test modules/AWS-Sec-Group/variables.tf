@@ -87,9 +87,3 @@ variable "prefix_list" {
   default     = []
   description = "List of prefix list IDs (for allowing access to VPC endpoints)Only valid with egress"
 }
-
-variable "tags" {
-  description = "A mapping of tags to assign to the resource"
-  type        = map(string)
-  default     = {}
-}
