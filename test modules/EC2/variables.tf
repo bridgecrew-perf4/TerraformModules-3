@@ -144,6 +144,7 @@ variable "default_ami" {
     "rhel"    = "RHEL8-CUSTOM*"
     "nessus"  = "Nessus 8.13.1 (master-12 1608153355) BYOL-8e783acf-0dfb-44dc-b080-415aad141bb2-ami-04aeca910673b8c21.4"
     "sql2017" = "WIN2019-SQL2017*"
+    "training" = "TrainingTemplate - 3.5 - Without Objects"
   }
 }
 
