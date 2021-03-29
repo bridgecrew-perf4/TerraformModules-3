@@ -4,7 +4,7 @@
 
 variable "profile" {
   description = "This is usually default but you can create different profiles when configuring your credentials file."
-  default     = "default"
+  default     = "AmazonSSMRoleForInstancesQuickSetup"
   type        = string
 }
 
