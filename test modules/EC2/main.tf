@@ -14,6 +14,7 @@ resource "aws_instance" "ec2" {
   instance_type = var.instance_type
   associate_public_ip_address = var.associate_public_ip_address
   user_data     = var.user_data 
+  iam_instance_profile = var.profile
    lifecycle {
     ignore_changes = [
       ami,
