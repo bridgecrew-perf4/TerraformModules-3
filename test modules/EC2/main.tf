@@ -13,7 +13,12 @@ resource "aws_instance" "ec2" {
   ami           = data.aws_ami.latest.id
   instance_type = var.instance_type
   associate_public_ip_address = var.associate_public_ip_address
-  user_data     = var.user_data
+  user_data     = var.user_data 
+   lifecycle {
+    ignore_changes = [
+      ami,
+    ]
+  }
   key_name      = var.key_name
   subnet_id = length(var.network_interface) > 0 ? null : element(
     distinct(compact(concat([var.subnet_id], var.subnet_ids))),
@@ -21,6 +26,7 @@ resource "aws_instance" "ec2" {
   )
   vpc_security_group_ids = var.vpc_security_group_ids
   ebs_optimized          = var.ebs_optimized
+
 
   dynamic "root_block_device" {
     for_each = var.root_block_device
