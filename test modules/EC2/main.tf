@@ -12,6 +12,7 @@ resource "aws_instance" "ec2" {
   count         = var.instance_count
   ami           = data.aws_ami.latest.id
   instance_type = var.instance_type
+  associate_public_ip_address = var.associate_public_ip_address
   user_data     = var.user_data
   key_name      = var.key_name
   subnet_id = length(var.network_interface) > 0 ? null : element(

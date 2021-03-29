@@ -49,6 +49,10 @@ variable "availability_zone" {
   default = "eu-central-1b"
 }
 
+variable "associate_public_ip_address" {
+  default = "false"
+}
+
 variable "server_port" {
   default = "443"
 }
