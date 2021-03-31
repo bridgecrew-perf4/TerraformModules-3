@@ -1,6 +1,10 @@
 #------------------------------------------------------------------------------
 # ECS Service
 #------------------------------------------------------------------------------
+variable "name" {
+  description = "The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)"
+}
+
 variable "cluster" {
   description = "The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)"
 }
