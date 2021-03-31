@@ -1,4 +1,4 @@
-  #------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 # ECS Service
 #------------------------------------------------------------------------------
 variable "name" {
@@ -15,12 +15,12 @@ variable "task_definition" {
 
 variable "desired_count" {
   description = "The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)"
-  default = "1"
+  default     = "1"
 }
 
 variable "launch_type" {
   description = "The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)"
-  default = "FARGATE"
+  default     = "FARGATE"
 }
 
 variable "security_groups" {
@@ -33,5 +33,11 @@ variable "subnets" {
 
 variable "assign_public_ip" {
   description = "The name of the cluster (up to 255 letters, numbers, hyphens, and underscores)"
-  default = "true"
+  default     = "true"
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to the resource"
+  type        = map(string)
+  default     = {}
 }
