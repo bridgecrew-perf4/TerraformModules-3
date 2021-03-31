@@ -1,5 +1,4 @@
 resource "aws_ecs_service" "main" {
-  name            = var.name
   cluster         = var.cluster
   task_definition = var.task_definition
   desired_count   = var.desired_count
