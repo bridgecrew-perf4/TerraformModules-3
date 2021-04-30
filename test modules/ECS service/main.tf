@@ -10,5 +10,10 @@ resource "aws_ecs_service" "main" {
     subnets          = var.subnets
     assign_public_ip = var.assign_public_ip
   }
+  load_balancer {
+    target_group_arn = var.target_group_arn
+    container_name   = var.container_name
+    container_port   = var.container_port
+  }
   tags = var.tags
 }

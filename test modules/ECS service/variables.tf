@@ -41,3 +41,18 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "target_group_arn" {
+  description = ""
+  default     = {}
+}
+
+variable "container_name" {
+  description = ""
+  default     = {}
+}
+
+variable "container_port" {
+  description = ""
+  default     = {}
+}
