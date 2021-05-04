@@ -54,5 +54,10 @@ variable "container_name" {
 
 variable "container_port" {
   description = ""
+  default     = {} 
+}
+
+variable "elb_name" {
+  description = ""
   default     = "" 
 }
