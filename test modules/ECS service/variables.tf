@@ -39,20 +39,20 @@ variable "assign_public_ip" {
 variable "tags" {
   description = "A mapping of tags to assign to the resource"
   type        = map(string)
-  default     = {}
+  default     = "" 
 }
 
 variable "target_group_arn" {
   description = ""
-  default     = {}
+  default     = "" 
 }
 
 variable "container_name" {
   description = ""
-  default     = {}
+  default     = "" 
 }
 
 variable "container_port" {
   description = ""
-  default     = {}
+  default     = "" 
 }
