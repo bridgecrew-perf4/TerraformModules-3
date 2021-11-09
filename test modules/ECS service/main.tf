@@ -4,7 +4,6 @@ resource "aws_ecs_service" "main" {
   task_definition = var.task_definition
   desired_count   = var.desired_count
   launch_type     = var.launch_type
-  propagate_tags  = var.propagate_tags
 
   network_configuration {
     security_groups  = var.security_groups
