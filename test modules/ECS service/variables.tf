@@ -56,3 +56,7 @@ variable "container_port" {
   description = ""
   default     = {} 
 }
+
+variable "propagate_tags" {
+  default     = "true"
+}
