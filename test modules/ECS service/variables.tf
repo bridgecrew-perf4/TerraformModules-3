@@ -56,3 +56,8 @@ variable "container_port" {
   description = ""
   default     = {} 
 }
+
+variable "deployment_minimum_healthy_percent" {
+  description = ""
+  type = numbers
+}
