@@ -9,18 +9,18 @@ data "aws_ami" "latest" {
 }
 
 resource "aws_instance" "ec2" {
-  count         = var.instance_count
-  ami           = data.aws_ami.latest.id
-  instance_type = var.instance_type
+  count                       = var.instance_count
+  ami                         = data.aws_ami.latest.id
+  instance_type               = var.instance_type
   associate_public_ip_address = var.associate_public_ip_address
-  user_data     = var.user_data 
-  iam_instance_profile = var.profile
-   lifecycle {
+  user_data                   = var.user_data
+  iam_instance_profile        = var.profile
+  lifecycle {
     ignore_changes = [
       ami,
     ]
   }
-  key_name      = var.key_name
+  key_name = var.key_name
   subnet_id = length(var.network_interface) > 0 ? null : element(
     distinct(compact(concat([var.subnet_id], var.subnet_ids))),
     count.index,

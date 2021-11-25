@@ -141,13 +141,13 @@ variable "default_ami" {
   type        = map
   description = "Choose windows 2016 or 2019"
   default = {
-    "2016"    = "WIN2016-CUSTOM*"
-    "2019"    = "WIN2019-CUSTOM*"
-    "centos7" = "CentOS7-CUSTOM*"
-    "centos8" = "CentOS8-CUSTOM*"
-    "rhel"    = "RHEL8-CUSTOM*"
-    "nessus"  = "Nessus 8.13.1 (master-12 1608153355) BYOL-8e783acf-0dfb-44dc-b080-415aad141bb2-ami-04aeca910673b8c21.4"
-    "sql2017" = "WIN2019-SQL2017*"
+    "2016"     = "WIN2016-CUSTOM*"
+    "2019"     = "WIN2019-CUSTOM*"
+    "centos7"  = "CentOS7-CUSTOM*"
+    "centos8"  = "CentOS8-CUSTOM*"
+    "rhel"     = "RHEL8-CUSTOM*"
+    "nessus"   = "Nessus 8.13.1 (master-12 1608153355) BYOL-8e783acf-0dfb-44dc-b080-415aad141bb2-ami-04aeca910673b8c21.4"
+    "sql2017"  = "WIN2019-SQL2017*"
     "training" = "TrainingTemplate - 3.5 - Without Objects"
   }
 }
