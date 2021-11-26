@@ -59,5 +59,6 @@ variable "container_port" {
 
 variable "deployment_minimum_healthy_percent" {
   description = ""
+  default = 100
   type = number
 }
