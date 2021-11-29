@@ -41,3 +41,8 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "deployment_minimum_healthy_percent" {
+  description = ""
+  type = number
+}
